@@ -22,7 +22,7 @@ RUN mkdir /projects && \
       chmod -R g+rwX ${f}; \
     done && \
     # buildah login requires writing to /run
-    chgrp -R 0 /run && chmod -R g+rwX /run && \
+    chgrp -R 0 /run && chmod -R g+rwX /run
     # 'which' utility is used by VS Code Kubernetes extension to find the binaries, e.g. 'kubectl'
     
 ADD etc/entrypoint.sh /entrypoint.sh
