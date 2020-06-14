@@ -14,6 +14,7 @@ ENV HOME=/home/theia
 
 ADD etc/storage.conf $HOME/.config/containers/storage.conf
 
+USER root
 RUN mkdir /projects && \
     # Change permissions to let any arbitrary user
     for f in "${HOME}" "/etc/passwd" "/projects"; do \
