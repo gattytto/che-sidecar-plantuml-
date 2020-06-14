@@ -24,6 +24,11 @@ RUN mkdir /projects && \
     # buildah login requires writing to /run
     chgrp -R 0 /run && chmod -R g+rwX /run
     # 'which' utility is used by VS Code Kubernetes extension to find the binaries, e.g. 'kubectl'
+    
+RUN mkdir -p /tmp/jetty/github-remote && \
+    chown -R jetty:0 /tmp/jetty && \
+    chmod -R g=u /tmp/jetty
+    
 RUN chown -R jetty:0 /var/lib/jetty \
     && chmod -R g=u /var/lib/jetty 
     
