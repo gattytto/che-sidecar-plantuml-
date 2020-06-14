@@ -1,1 +1,1 @@
-# che-sidecar-tekton
+# che-sidecar-plantuml
