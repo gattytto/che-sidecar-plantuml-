@@ -16,15 +16,14 @@ ENV HOME=/home/theia
 ADD etc/storage.conf $HOME/.config/containers/storage.conf
 
 USER root
-RUN mkdir /projects && \
+RUN mkdir /projects && mkdir -p /home/theia && \
     # Change permissions to let any arbitrary user
     for f in "${HOME}" "/etc/passwd" "/projects"; do \
       echo "Changing permissions on ${f}" && chgrp -R 0 ${f} && \
       chmod -R g+rwX ${f}; \
     done && \
     # buildah login requires writing to /run
-    chgrp -R 0 /run && chmod -R g+rwX /run
-    # 'which' utility is used by VS Code Kubernetes extension to find the binaries, e.g. 'kubectl'
+    chgrp -R 0 /run && chmod -R g+rwX /run 
     
 ADD etc/entrypoint.sh /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
