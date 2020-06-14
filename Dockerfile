@@ -25,7 +25,7 @@ RUN mkdir /projects && \
     chgrp -R 0 /run && chmod -R g+rwX /run
     # 'which' utility is used by VS Code Kubernetes extension to find the binaries, e.g. 'kubectl'
 RUN chown -R jetty:0 /var/lib/jetty \
-	   && chmod -R g=u /var/lib/jetty \
+    && chmod -R g=u /var/lib/jetty 
     
 ADD etc/entrypoint.sh /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
