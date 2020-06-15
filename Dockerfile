@@ -24,7 +24,7 @@ RUN mkdir /projects && mkdir -p /home/theia && \
     done && \
     # buildah login requires writing to /run
     chgrp -R 0 /run && chmod -R g+rwX /run && \
-    apt update && apt install -y procps htop net-utils wget curl git graphviz 
+    apt update && apt install -y procps htop net-tools wget curl git graphviz 
     
 ADD etc/entrypoint.sh /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
