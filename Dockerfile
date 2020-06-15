@@ -23,7 +23,8 @@ RUN mkdir /projects && mkdir -p /home/theia && \
       chmod -R g+rwX ${f}; \
     done && \
     # buildah login requires writing to /run
-    chgrp -R 0 /run && chmod -R g+rwX /run 
+    chgrp -R 0 /run && chmod -R g+rwX /run && \
+    apt update && apt install -y procps htop net-utils wget curl git
     
 ADD etc/entrypoint.sh /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
