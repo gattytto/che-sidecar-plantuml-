@@ -17,8 +17,6 @@ ADD etc/storage.conf $HOME/.config/containers/storage.conf
 
 USER root
 
-RUN /bin/sh /generate-jetty-start.sh
-
 RUN mkdir /projects && mkdir -p /home/theia && \
     # Change permissions to let any arbitrary user
     for f in "${HOME}" "/etc/passwd" "/projects"; do \
