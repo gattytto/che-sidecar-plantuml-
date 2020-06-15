@@ -32,5 +32,5 @@ RUN mkdir /projects && mkdir -p /home/theia && \
     
 ADD etc/entrypoint.sh /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
-CMD ["java" "-jar" "/usr/local/jetty/start.jar"]
+
 CMD ${PLUGIN_REMOTE_ENDPOINT_EXECUTABLE}
